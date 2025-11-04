@@ -1,0 +1,39 @@
+{
+    "id":  "grid-size-mapper",
+    "title":  "Grid Size Mapper",
+    "description":  "Set a scene\u0027s grid by entering horizontal/vertical grid counts of the battlemap.",
+    "version":  "0.1.0",
+    "authors":  [
+                    {
+                        "name":  "Sampire"
+                    }
+                ],
+    "url":  "https://example.com/",
+    "license":  "MIT",
+    "compatibility":  {
+                          "minimum":  "11",
+                          "verified":  "13"
+                      },
+    "esmodules":  [
+                      "scripts/grid-mapper.js"
+                  ],
+    "languages":  [
+                      {
+                          "lang":  "en",
+                          "name":  "English",
+                          "path":  "lang/en.json"
+                      }
+                  ],
+    "packs":  [
+
+              ],
+    "scripts":  [
+
+                ],
+    "styles":  [
+                   "styles/module.css"
+               ],
+    "manifest":  "https://raw.githubusercontent.com//v0.1.0/module.json",
+    "download":  "https://github.com//releases/download/v0.1.0/grid-size-mapper-0.1.0.zip",
+    "readme":  "README.md"
+}
