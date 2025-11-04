@@ -129,19 +129,22 @@ Hooks.on('renderSceneConfig', (app, html) => {
     const sceneDoc = app.document || app.object || canvas?.scene;
     if (!sceneDoc) return;
 
-    const selectEl = html.find('select[name="grid.type"]');
-    if (!selectEl.length) return;
+    // Try several selector variants across versions
+    const gridTab = html.find('.tab[data-tab="grid"]').length ? html.find('.tab[data-tab="grid"]') : html;
+    let targetSelect = gridTab.find('select[name="grid.type"]');
+    if (!targetSelect.length) targetSelect = gridTab.find('select[name="gridType"]');
+    if (!targetSelect.length) targetSelect = gridTab.find('select');
+
+    if (!targetSelect.length) return; // Can't find a reasonable place
 
     const btn = $(`
-      <button type="button" class="grid-mapper-btn" style="margin-left: 6px;">
+      <button type="button" class="grid-mapper-btn" style="margin-left: 6px;" title="Set Grid by Counts">
         <i class="fa-solid fa-border-all"></i>
       </button>
     `);
 
-    btn.attr('title', 'Set Grid by Counts');
     btn.on('click', () => openGridCountDialog(sceneDoc));
-
-    selectEl.after(btn);
+    targetSelect.after(btn);
   } catch (err) {
     console.error('Grid Size Mapper | Failed to inject button into Scene Config', err);
   }

@@ -2,13 +2,13 @@
     "id":  "grid-size-mapper",
     "title":  "Grid Size Mapper",
     "description":  "Set a scene\u0027s grid by entering horizontal/vertical grid counts of the battlemap.",
-    "version":  "0.1.3",
+    "version":  "0.1.4",
     "authors":  [
                     {
                         "name":  "Sampire"
                     }
                 ],
-    "url":  "https://example.com/",
+    "url":  "https://github.com/sampire21/grid-size-mapper",
     "license":  "MIT",
     "compatibility":  {
                           "minimum":  "11",
@@ -33,7 +33,7 @@
     "styles":  [
                    "styles/module.css"
                ],
-    "manifest":  "https://raw.githubusercontent.com/sampire21/grid-size-mapper/v0.1.3/module.json",
-    "download":  "https://github.com/sampire21/grid-size-mapper/releases/download/v0.1.3/grid-size-mapper-0.1.3.zip",
+    "manifest":  "https://raw.githubusercontent.com/sampire21/grid-size-mapper/v0.1.4/module.json",
+    "download":  "https://github.com/sampire21/grid-size-mapper/releases/download/v0.1.4/grid-size-mapper-0.1.4.zip",
     "readme":  "README.md"
 }
