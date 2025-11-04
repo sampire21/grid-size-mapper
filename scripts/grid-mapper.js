@@ -17,8 +17,8 @@ Hooks.on('getSceneControlButtons', (controls) => {
   scenes.tools.push(tool);
 });
 
-async function openGridCountDialog() {
-  const scene = canvas?.scene;
+async function openGridCountDialog(targetScene) {
+  const scene = targetScene ?? canvas?.scene;
   if (!scene) {
     ui.notifications.warn('No active scene.');
     return;
@@ -122,5 +122,29 @@ async function computeAndApplyGridFromCounts(scene, cols, rows) {
     ui.notifications.error('Failed to update scene.');
   }
 }
+
+// Inject a button into the Scene Config, beside Grid Type
+Hooks.on('renderSceneConfig', (app, html) => {
+  try {
+    const sceneDoc = app.document || app.object || canvas?.scene;
+    if (!sceneDoc) return;
+
+    const selectEl = html.find('select[name="grid.type"]');
+    if (!selectEl.length) return;
+
+    const btn = $(`
+      <button type="button" class="grid-mapper-btn" style="margin-left: 6px;">
+        <i class="fa-solid fa-border-all"></i>
+      </button>
+    `);
+
+    btn.attr('title', 'Set Grid by Counts');
+    btn.on('click', () => openGridCountDialog(sceneDoc));
+
+    selectEl.after(btn);
+  } catch (err) {
+    console.error('Grid Size Mapper | Failed to inject button into Scene Config', err);
+  }
+});
 
 
